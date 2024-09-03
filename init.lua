@@ -187,10 +187,17 @@ local function moveWindowInDirection(direction)
         elseif window_coordinates.x == two.x and window_coordinates.y == two.y
         and window_coordinates.h == two.h and window_coordinates.w == two.w then
             print('right from two to two_three')
-            window.x = two_three.x
-            window.y = two_three.y
-            window.h = two_three.h
-            window.w = two_three.w
+            if num_cols == 2 then
+                window.x = one.x
+                window.y = one.y
+                window.h = one.h
+                window.w = one.w
+            else
+                window.x = two_three.x
+                window.y = two_three.y
+                window.h = two_three.h
+                window.w = two_three.w
+            end
         -- if the window is in two_three, then move it to three
         elseif window_coordinates.x == two_three.x and window_coordinates.y == two_three.y
         and window_coordinates.h == two_three.h and window_coordinates.w == two_three.w then
@@ -232,10 +239,17 @@ local function moveWindowInDirection(direction)
         -- if the window is in upper_two, then move it to upper_three
         elseif window_coordinates.x == upper_two.x and window_coordinates.y == upper_two.y
         and window_coordinates.h == upper_two.h and window_coordinates.w == upper_two.w then
-            window.x = upper_three.x
-            window.y = upper_three.y
-            window.h = upper_three.h
-            window.w = upper_three.w
+            if num_cols == 2 then
+                window.x = upper_one.x
+                window.y = upper_one.y
+                window.h = upper_one.h
+                window.w = upper_one.w
+            else
+                window.x = upper_three.x
+                window.y = upper_three.y
+                window.h = upper_three.h
+                window.w = upper_three.w
+            end
         -- if the window is in upper_three, then move it to upper_four
         elseif window_coordinates.x == upper_three.x and window_coordinates.y == upper_three.y
         and window_coordinates.h == upper_three.h and window_coordinates.w == upper_three.w then
@@ -260,10 +274,17 @@ local function moveWindowInDirection(direction)
         -- if the window is in lower_two, then move it to lower_three
         elseif window_coordinates.x == lower_two.x and window_coordinates.y == lower_two.y
         and window_coordinates.h == lower_two.h and window_coordinates.w == lower_two.w then
-            window.x = lower_three.x
-            window.y = lower_three.y
-            window.h = lower_three.h
-            window.w = lower_three.w
+            if num_cols == 2 then
+                window.x = lower_one.x
+                window.y = lower_one.y
+                window.h = lower_one.h
+                window.w = lower_one.w
+            else
+                window.x = lower_three.x
+                window.y = lower_three.y
+                window.h = lower_three.h
+                window.w = lower_three.w
+            end
         -- if the window is in lower_three, then move it to lower_four
         elseif window_coordinates.x == lower_three.x and window_coordinates.y == lower_three.y
         and window_coordinates.h == lower_three.h and window_coordinates.w == lower_three.w then
@@ -369,10 +390,19 @@ local function moveWindowInDirection(direction)
         -- if the window is in one, then move it to four
         elseif window_coordinates.x == one.x and window_coordinates.y == one.y
         and window_coordinates.h == one.h and window_coordinates.w == one.w then
-            window.x = four.x
-            window.y = four.y
-            window.h = four.h
-            window.w = four.w
+            if num_cols == 2 then
+                window.x = two.x
+                window.y = two.y
+                window.h = two.h
+                window.w = two.w
+            else
+                window.x = four.x
+                window.y = four.y
+                window.h = four.h
+                window.w = four.w
+            end
+            print("Moving from one to four (wrap-around)")
+            print("four.x:", four.x, "four.y:", four.y, "four.w:", four.w, "four.h:", four.h)
         -- if the window is in upper_four, then move it to upper_three
         elseif window_coordinates.x == upper_four.x and window_coordinates.y == upper_four.y
         and window_coordinates.h == upper_four.h and window_coordinates.w == upper_four.w then
@@ -397,10 +427,17 @@ local function moveWindowInDirection(direction)
         -- if the window is in upper_one, then move it to upper_four
         elseif window_coordinates.x == upper_one.x and window_coordinates.y == upper_one.y
         and window_coordinates.h == upper_one.h and window_coordinates.w == upper_one.w then
-            window.x = upper_four.x
-            window.y = upper_four.y
-            window.h = upper_four.h
-            window.w = upper_four.w
+            if num_cols == 2 then
+                window.x = upper_two.x
+                window.y = upper_two.y
+                window.h = upper_two.h
+                window.w = upper_two.w
+            else
+                window.x = upper_four.x
+                window.y = upper_four.y
+                window.h = upper_four.h
+                window.w = upper_four.w
+            end
         -- if the window is in lower_four, then move it to lower_three
         elseif window_coordinates.x == lower_four.x and window_coordinates.y == lower_four.y
         and window_coordinates.h == lower_four.h and window_coordinates.w == lower_four.w then
@@ -425,10 +462,17 @@ local function moveWindowInDirection(direction)
         -- if the window is in lower_one, then move it to lower_four
         elseif window_coordinates.x == lower_one.x and window_coordinates.y == lower_one.y
         and window_coordinates.h == lower_one.h and window_coordinates.w == lower_one.w then
-            window.x = lower_four.x
-            window.y = lower_four.y
-            window.h = lower_four.h
-            window.w = lower_four.w
+            if num_cols == 2 then
+                window.x = lower_two.x
+                window.y = lower_two.y
+                window.h = lower_two.h
+                window.w = lower_two.w
+            else
+                window.x = lower_four.x
+                window.y = lower_four.y
+                window.h = lower_four.h
+                window.w = lower_four.w
+            end
         -- if the window is in one_two_three, then move it to two_three_four
         elseif window_coordinates.x == one_two_three.x and window_coordinates.y == one_two_three.y
         and window_coordinates.h == one_two_three.h and window_coordinates.w == one_two_three.w then

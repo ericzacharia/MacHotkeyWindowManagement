@@ -158,6 +158,12 @@ local function moveWindowInDirection(direction)
         w = math.floor(3 * monitor.w / num_cols),
         h = math.floor(monitor.h - height_adjustment)
     }
+    local one_two_three_four = {
+        x = math.floor(monitor.x),
+        y = math.floor(monitor.y),
+        w = math.floor(monitor.w),
+        h = math.floor(monitor.h - height_adjustment)
+    }
     
     if direction == 'right' then
         print(window_coordinates.x, window_coordinates.y, window_coordinates.h, window_coordinates.w)
@@ -618,15 +624,22 @@ local function moveWindowInDirection(direction)
             window.y = two_three_four.y
             window.h = two_three_four.h
             window.w = two_three_four.w
-        -- if the window is in one_two_three or two_three_four, then move it to two_three
+        -- if the window is in one_two_three or two_three_four, then move it to one_two_three_four
         elseif (window_coordinates.x == one_two_three.x and window_coordinates.y == one_two_three.y
         and window_coordinates.h == one_two_three.h and window_coordinates.w == one_two_three.w)
         or (window_coordinates.x == two_three_four.x and window_coordinates.y == two_three_four.y
         and window_coordinates.h == two_three_four.h and window_coordinates.w == two_three_four.w) then
-            window.x = two_three.x
-            window.y = two_three.y
-            window.h = two_three.h
-            window.w = two_three.w
+            window.x = one_two_three_four.x
+            window.y = one_two_three_four.y
+            window.h = one_two_three_four.h
+            window.w = one_two_three_four.w
+        -- if the window is in one_two_three_four, then move it to two
+        elseif window_coordinates.x == one_two_three_four.x and window_coordinates.y == one_two_three_four.y
+        and window_coordinates.h == one_two_three_four.h and window_coordinates.w == one_two_three_four.w then
+            window.x = two.x
+            window.y = two.y
+            window.h = two.h
+            window.w = two.w
         -- else move it to closest fifth column of the screen
         else
             -- determine the closest section to the current location between one, two, three, four, and five
@@ -743,22 +756,22 @@ local function moveWindowInDirection(direction)
             window.y = upper_four.y
             window.h = upper_four.h
             window.w = upper_four.w
-        -- if the window is in one_two or two_three, then move it to one_two_three
+        -- if the window is in one_two or two_three, then move it to two
         elseif (window_coordinates.x == one_two.x and window_coordinates.y == one_two.y
         and window_coordinates.h == one_two.h and window_coordinates.w == one_two.w)
         or (window_coordinates.x == two_three.x and window_coordinates.y == two_three.y
         and window_coordinates.h == two_three.h and window_coordinates.w == two_three.w) then
-            window.x = one_two_three.x
-            window.y = one_two_three.y
-            window.h = one_two_three.h
-            window.w = one_two_three.w
-        -- if the window is in three_four, then move it to two_three_four
+            window.x = two.x
+            window.y = two.y
+            window.h = two.h
+            window.w = two.w
+        -- if the window is in three_four, then move it to three
         elseif (window_coordinates.x == three_four.x and window_coordinates.y == three_four.y
         and window_coordinates.h == three_four.h and window_coordinates.w == three_four.w) then
-            window.x = two_three_four.x
-            window.y = two_three_four.y
-            window.h = two_three_four.h
-            window.w = two_three_four.w
+            window.x = three.x
+            window.y = three.y
+            window.h = three.h
+            window.w = three.w
         -- if the window is in one_two_three or two_three_four, then move it to two_three
         elseif (window_coordinates.x == one_two_three.x and window_coordinates.y == one_two_three.y
         and window_coordinates.h == one_two_three.h and window_coordinates.w == one_two_three.w)
@@ -768,6 +781,13 @@ local function moveWindowInDirection(direction)
             window.y = two_three.y
             window.h = two_three.h
             window.w = two_three.w
+        -- if the window is in one_two_three_four, then move it to one_two_three
+        elseif window_coordinates.x == one_two_three_four.x and window_coordinates.y == one_two_three_four.y
+        and window_coordinates.h == one_two_three_four.h and window_coordinates.w == one_two_three_four.w then
+            window.x = one_two_three.x
+            window.y = one_two_three.y
+            window.h = one_two_three.h
+            window.w = one_two_three.w
         -- else move it to closest fifth column of the screen
         else
             -- determine the closest section to the current location between one, two, three, four, and five
